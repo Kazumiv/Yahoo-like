@@ -1,0 +1,29 @@
+<%- include ('partials/head.ejs')%>
+<body>
+    <%- include ('partials/navbar.ejs') %>
+    <div class="container">
+        <h1>Questions</h1>
+        <div id="Questions">
+            <% questions.forEach(q=>{ %>
+                
+                <div id="question<%=q.id%>" class="card mb-3">
+                    <a href="/question/<%=q.id%>" class="text-decoration-none text-dark">
+                    <div class="card-header">
+                            <h4 class="card-title"><%=q.title%></h4>
+                    </div>
+                    </a>
+                    <div class="card-body">
+                        <%if(q.desc){%>
+                            <p><%=q.desc%></p>
+                        <%}else {%>
+                            <p class="text-muted">No description.</p>
+                        <%}%>
+                    </div>
+                </div>
+                
+            <% }) %>
+        </div>
+    </div>
+</body>
+
+<%- include ('partials/footer.ejs')%>
